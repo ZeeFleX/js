@@ -1,22 +1,23 @@
-import React, {useContext, createContext, useState} from "react";
+import React, {useState, createContext} from "react";
+import MovieCard from "../movie_card/movie_card_component";
 
-export const MyContext = createContext('')
+export const UserInput = createContext('')
 
 function FilterInput() {
-  const [title, setMovieTitle] = useState('');
+
+  const [userInput, setMovieTitle] = useState('');
   const changeUserInputHandler = event => {
     setMovieTitle(event.target.value)
 
   }
 
-  console.log(useContext(MyContext));
-
   return (
-    <MyContext.Provider value={title}>
+    <UserInput.Provider value={userInput}>
       <div>
-        <input type="text" value={title} onChange={changeUserInputHandler} placeholder='Название фильма'/>
+        <input type="text" value={userInput} onChange={changeUserInputHandler} placeholder='Название фильма'/>
       </div>
-    </MyContext.Provider>
+      <div><MovieCard/></div>
+    </UserInput.Provider>
   )
 }
 

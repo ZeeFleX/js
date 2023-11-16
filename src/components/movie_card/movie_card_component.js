@@ -1,6 +1,7 @@
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import Movies from "../../api";
-import {MyContext} from "../filterInput/filterInputComponent";
+import {UserInput} from "../filterInput/filterInputComponent";
+
 
 function MovieCard() {
   const [movies, setMovies] = useState([]);
@@ -16,14 +17,13 @@ function MovieCard() {
   }
 
   const filteredMovies = []
-  const userInput = useContext(MyContext);
-
-  console.log(userInput);
+  const userInput = useContext(UserInput);
 
   movies.map(movie => {
     if (movie.title.indexOf(userInput) >= 0) {
       filteredMovies.push(movie);
     }
+
   });
 
   return (
