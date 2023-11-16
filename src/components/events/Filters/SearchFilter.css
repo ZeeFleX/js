@@ -1,0 +1,37 @@
+.SearchFilter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Выравнивание контейнера по правому краю */
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.SearchFilter.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.search-input {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.search-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+.search-input::placeholder {
+  color: #888;
+  font-size: 14px;
+}

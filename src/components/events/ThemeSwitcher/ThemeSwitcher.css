@@ -2,15 +2,16 @@
   font-size: 24px;
   cursor: pointer;
   position: fixed;
-  top: 20px;
+  top: 50px; /* Новое значение для понижения солнца с луной */
   right: 20px;
   z-index: 1;
   user-select: none;
-  transition: color 0.5s ease, background 0.5s ease; /* Добавим переходы для цвета текста и фона */
+  transition: color 0.5s ease, background 0.5s ease;
   border: none;
   background: none;
   outline: none;
 }
+
 
 .theme-switcher.dark {
   color: #fff;
