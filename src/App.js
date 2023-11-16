@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Events from './components/events/Events';
+import ThemeSwitcher from './components/events/ThemeSwitcher/ThemeSwitcher';
 
 function App() {
+  const [isDarkMode, setDarkMode] = useState(false);
+
+  const handleThemeToggle = (darkMode) => {
+    setDarkMode(darkMode);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${isDarkMode ? 'dark' : 'light'}`}>
+      <ThemeSwitcher onToggle={handleThemeToggle} />
+      <h1>Фильмы в прокате</h1>
+      <Events />
     </div>
   );
 }
