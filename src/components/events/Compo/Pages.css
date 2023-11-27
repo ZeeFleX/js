@@ -1,0 +1,58 @@
+.container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: background-color 0.3s ease-in-out;
+    max-width: 600px; /* Добавлен стиль максимальной ширины */
+  }
+  
+  h2 {
+    color: #333;
+    text-align: center;
+  }
+  
+  p {
+    color: #666;
+    word-wrap: break-word; /* Добавлен стиль переноса слов */
+  }
+  
+  /* Стили для каждой страницы */
+  
+  /* Стили для Home */
+  .container.home {
+    background-color: #f5f5f5;
+  }
+  
+  /* Стили для About */
+  .container.about {
+    background-color: #e8f5e9;
+  }
+  
+  /* Стили для Contact */
+  .container.contact {
+    background-color: #e1f5fe;
+  }
+  
+  /* Добавим отступы и стили для кнопок навигации */
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .nav-buttons a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+    margin-right: 10px;
+  }
+  
+  .nav-buttons a:hover {
+    background-color: #2980b9;
+  }

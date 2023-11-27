@@ -48,7 +48,9 @@ const Events = ({ selectedGenres, selectedPremiere, searchQuery }) => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        filteredMovies.map(movie => <EventCard key={movie.id} movie={movie} />)
+        filteredMovies.map(movie => (
+          <EventCard key={movie.id} movie={movie} />
+        ))
       )}
     </div>
   );

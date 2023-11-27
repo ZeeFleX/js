@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import './Filters.css';
 
-const GenresFilter = ({ setGenres }) => {
+const GenresFilter = () => {
   const allGenres = [
     'комедия', 'спектакль', 'музыка', 'опера', 'мюзикл', 'фэнтези', 'приключения', 'драма', 'история', 'биография',
     'ужасы', 'детектив', 'боевик', 'триллер', 'фантастика', 'мультфильм', 'криминал', 'балет', 'лекция', 'семейный',
@@ -27,7 +26,7 @@ const GenresFilter = ({ setGenres }) => {
 
   return (
     <div>
-      <label>Жанры:</label>
+      <label>Жанры: </label>
       <select onChange={handleSelect}>
         <option value="">все жанры</option>
         {allGenres.map((genre) => (
@@ -46,6 +45,7 @@ const GenresFilter = ({ setGenres }) => {
         ))}
       </div>
     </div>
-  )};
+  );
+};
 
 export default GenresFilter;
