@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Pages.css';
 
 const Favorite = () => {
   return (
