@@ -1,11 +1,11 @@
 import React from 'react';
 import './Pages.css';
 
-const About = () => {
+const About = ({ isDarkMode }) => {
   return (
-    <div className="container about">
+    <div className={`container about ${isDarkMode ? 'dark' : 'light'}`}>
       <h2>О нас</h2>
-      <p>This is the about page content.</p>
+      <p>Nothing.</p>
     </div>
   );
 };

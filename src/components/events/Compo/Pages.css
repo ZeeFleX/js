@@ -6,34 +6,54 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     transition: background-color 0.3s ease-in-out;
-    max-width: 600px; /* Добавлен стиль максимальной ширины */
+    width: 100%;
+    max-width: fit-content; /* Добавлен стиль максимальной ширины */
+    text-align: center;
   }
   
   h2 {
-    color: #333;
+    /* color: #333; */
     text-align: center;
   }
   
   p {
-    color: #666;
     word-wrap: break-word; /* Добавлен стиль переноса слов */
   }
-  
-  /* Стили для каждой страницы */
-  
-  /* Стили для Home */
-  .container.home {
-    background-color: #f5f5f5;
+
+  /* стили для темной темы */
+  .container.home.dark {
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* стили для светлой темы */
+  .container.home.light {
+    background-color: #fff;
+    color: #333;
+  }
+
+  /* стили для темной темы */
+  .container.about.dark {
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* стили для светлой темы */
+  .container.about.light {
+    background-color: #fff;
+    color: #333;
   }
   
-  /* Стили для About */
-  .container.about {
-    background-color: #e8f5e9;
+  /* стили для темной темы */
+  .container.favorite.dark {
+    background-color: #333;
+    color: #fff;
   }
   
-  /* Стили для Contact */
-  .container.contact {
-    background-color: #e1f5fe;
+  /* стили для светлой темы */
+  .container.favorite.light {
+    background-color: #fff;
+    color: #333;
   }
   
   /* Добавим отступы и стили для кнопок навигации */
