@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import './EventCard.css';
 
-const EventCard = ({ movie, addToFavorites, removeFromFavorites, isFavorite }) => {
-  const [addedToFavorites, setAddedToFavorites] = useState(false);
+const EventCard = ({ movie, addToBaskets, removeFromBaskets, isBasket }) => {
+  const [addedToBaskets, setAddedToBaskets] = useState(false);
 
-  const handleToggleFavorites = () => {
-    if (isFavorite) {
-      removeFromFavorites(movie.id);
+  const handleToggleBaskets = () => {
+    if (isBasket) {
+      removeFromBaskets(movie.id);
     } else {
-      addToFavorites(movie);
+      addToBaskets(movie);
     }
-    setAddedToFavorites(!addedToFavorites);
+    setAddedToBaskets(!addedToBaskets);
   };
 
   return (
@@ -22,11 +22,11 @@ const EventCard = ({ movie, addToFavorites, removeFromFavorites, isFavorite }) =
       <p>Жанры: {movie.genres.map(({ genre }) => genre.Name).join(', ')}</p>
       <p>Продолжительность: {movie.duration / 60} мин</p>
       <p>Премьера: {movie.premiere ? 'Да' : 'Нет'}</p>
-      {addedToFavorites ? (
-        <p>Фильм был добавлен в избранное</p>
+      {addedToBaskets ? (
+        <p>Фильм был добавлен в корзину</p>
       ) : (
-        <button onClick={handleToggleFavorites}>
-          {isFavorite ? 'Удалить из избранного' : 'Добавить в избранное'}
+        <button onClick={handleToggleBaskets}>
+          {isBasket ? 'Удалить из корзины' : 'Добавить в корзину'}
         </button>
       )}
     </div>

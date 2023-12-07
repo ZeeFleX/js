@@ -41,7 +41,10 @@ const SearchFilter = ({ setSearchQuery }) => {
           placeholder="Поиск..."
           className="search-input"
         />
-        <button onClick={handleSearch} className="search-button">
+        <button
+          onClick={handleSearch}
+          className={`search-button ${isHidden ? 'small' : ''}`}
+        >
           Искать
         </button>
       </div>

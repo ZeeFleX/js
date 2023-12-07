@@ -6,13 +6,13 @@ import PremiereFilter from '../Filters/PremiereFilter';
 import SearchFilter from '../Filters/SearchFilter';
 import '../Filters/Filters.css';
 
-const Home = ({ isDarkMode, addToFavorites }) => {
+const Home = ({ isDarkMode, addToBaskets }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedGenre, setSelectedGenre] = useState('');
   const [selectedPremiere, setSelectedPremiere] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredMovies, setFilteredMovies] = useState([]); // Используем состояние для отфильтрованных фильмов
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
   useEffect(() => {
     axios.get('https://api.dev.mooon.by/events')
@@ -27,12 +27,11 @@ const Home = ({ isDarkMode, addToFavorites }) => {
   }, []);
 
   useEffect(() => {
-    // Функция для фильтрации фильмов
     const filterMovies = () => {
       let tempMovies = [...movies];
 
       if (selectedGenre !== '') {
-        tempMovies = tempMovies.filter(movie => movie.genre === selectedGenre);
+        tempMovies = tempMovies.filter(movie => movie.genres.map(({ genre }) => genre.Name).includes(selectedGenre));
       }
 
       if (selectedPremiere !== '') {
@@ -41,15 +40,14 @@ const Home = ({ isDarkMode, addToFavorites }) => {
 
       if (searchQuery.trim() !== '') {
         const query = searchQuery.toLowerCase();
-        tempMovies = tempMovies.filter(movie => movie.title.toLowerCase().includes(query));
+        tempMovies = tempMovies.filter(movie => movie.title.toLowerCase().includes(query) || movie.genres.map(({ genre }) => genre.Name.toLowerCase()).includes(query));
       }
 
       return tempMovies;
     };
 
-    // Обновляем состояние отфильтрованных фильмов
     setFilteredMovies(filterMovies());
-  }, [movies, selectedGenre, selectedPremiere, searchQuery]); // Эффект будет вызываться при изменении этих параметров
+  }, [movies, selectedGenre, selectedPremiere, searchQuery]);
 
   return (
     <div className={`container home ${isDarkMode ? 'dark' : 'light'}`}>
@@ -65,7 +63,7 @@ const Home = ({ isDarkMode, addToFavorites }) => {
       ) : (
         <div className="movie-list">
           {filteredMovies.map(movie => (
-            <EventCard key={movie.id} movie={movie} addToFavorites={addToFavorites} />
+            <EventCard key={movie.id} movie={movie} addToBaskets={addToBaskets} />
           ))}
         </div>
       )}

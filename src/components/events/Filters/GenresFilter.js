@@ -1,15 +1,17 @@
 import React from 'react';
-import './Filters.css';
+import "./Filters.css";
 
 const GenresFilter = ({ setGenre }) => {
   const allGenres = [
-    'комедия', 'спектакль', 'музыка', 'опера', 'мюзикл', 'фэнтези', 'приключения', 'драма', 'история', 'биография',
-    'ужасы', 'детектив', 'боевик', 'триллер', 'фантастика', 'мультфильм', 'криминал', 'балет', 'лекция', 'семейный',
-    'мелодрама', 'спорт'
+    'Комедия', 'Спектакль', 'Музыка', 'Опера', 'Мюзикл', 'Фэнтези', 'Приключения', 'Драма', 'История', 'Биография',
+    'Ужасы', 'Детектив', 'Боевик', 'Триллер', 'Фантастика', 'Мультфильм', 'Криминал', 'Балет', 'Лекция', 'Семейный',
+    'Мелодрама', 'Спорт'
   ];
 
+  const sortedGenres = allGenres.slice().sort((a, b) => a.localeCompare(b, 'ru', { sensitivity: 'base' }));
+
   const handleSelect = (e) => {
-    const genre = e.target.value;
+    const genre = e.target.value.toLowerCase();
     setGenre(genre);
   };
 
@@ -17,8 +19,8 @@ const GenresFilter = ({ setGenre }) => {
     <div>
       <label>Жанры: </label>
       <select onChange={handleSelect}>
-        <option value="">все жанры</option>
-        {allGenres.map((genre) => (
+        <option value="">Все жанры</option>
+        {sortedGenres.map((genre) => (
           <option key={genre} value={genre}>
             {genre}
           </option>

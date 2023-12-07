@@ -5,8 +5,8 @@ import './Events.css';
 
 const Events = ({ selectedGenres, selectedPremiere, searchQuery, isDarkMode }) => {
   const [movies, setMovies] = useState([]);
-  const [favoriteMovieIds, setFavoriteMovieIds] = useState(
-    new Set(JSON.parse(localStorage.getItem('favoriteMovieIds')) || [])
+  const [basketMovieIds, setBasketMovieIds] = useState(
+    new Set(JSON.parse(localStorage.getItem('basketMovieIds')) || [])
   );
 
   useEffect(() => {
@@ -19,17 +19,17 @@ const Events = ({ selectedGenres, selectedPremiere, searchQuery, isDarkMode }) =
       });
   }, []);
 
-  const addToFavorites = (movieId) => {
-    const newFavoriteMovieIds = new Set([...favoriteMovieIds, movieId]);
-    setFavoriteMovieIds(newFavoriteMovieIds);
-    localStorage.setItem('favoriteMovieIds', JSON.stringify(Array.from(newFavoriteMovieIds)));
+  const addToBaskets = (movieId) => {
+    const newBasketMovieIds = new Set([...basketMovieIds, movieId]);
+    setBasketMovieIds(newBasketMovieIds);
+    localStorage.setItem('basketMovieIds', JSON.stringify(Array.from(newBasketMovieIds)));
   };
 
-  const removeFromFavorites = (movieId) => {
-    const newFavoriteMovieIds = new Set(favoriteMovieIds);
-    newFavoriteMovieIds.delete(movieId);
-    setFavoriteMovieIds(newFavoriteMovieIds);
-    localStorage.setItem('favoriteMovieIds', JSON.stringify(Array.from(newFavoriteMovieIds)));
+  const removeFromBaskets = (movieId) => {
+    const newBasketMovieIds = new Set(basketMovieIds);
+    newBasketMovieIds.delete(movieId);
+    setBasketMovieIds(newBasketMovieIds);
+    localStorage.setItem('basketMovieIds', JSON.stringify(Array.from(newBasketMovieIds)));
   };
 
   const filterMovies = () => {
@@ -63,9 +63,9 @@ const Events = ({ selectedGenres, selectedPremiere, searchQuery, isDarkMode }) =
         <EventCard
           key={movie.id}
           movie={movie}
-          addToFavorites={() => addToFavorites(movie.id)}
-          removeFromFavorites={() => removeFromFavorites(movie.id)}
-          isFavorite={favoriteMovieIds.has(movie.id)}
+          addToBaskets={() => addToBaskets(movie.id)}
+          removeFromBaskets={() => removeFromBaskets(movie.id)}
+          isBasket={basketMovieIds.has(movie.id)}
         />
       ))}
     </div>

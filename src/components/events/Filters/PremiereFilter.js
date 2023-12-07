@@ -10,7 +10,7 @@ const PremiereFilter = ({ setPremiere }) => {
     <div>
       <label>Премьера: </label>
       <select onChange={handleSelect}>
-        <option value="">все</option>
+        <option value="">Все</option>
         <option value="true">Да</option>
         <option value="false">Нет</option>
       </select>

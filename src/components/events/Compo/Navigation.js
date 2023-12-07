@@ -7,7 +7,7 @@ const Navigation = () => {
     <div className="nav-buttons">
       <Link to="/home">Home</Link>
       <Link to="/about">About</Link>
-      <Link to="/favorite">Favorite</Link>
+      <Link to="/basket">Basket</Link>
     </div>
   );
 };

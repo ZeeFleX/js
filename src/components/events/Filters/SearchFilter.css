@@ -1,7 +1,7 @@
 .SearchFilter {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Выравнивание контейнера по правому краю */
+  justify-content: flex-end;
   position: fixed;
   top: 0;
   right: 0;
@@ -25,6 +25,11 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  transition: padding 0.5s ease; /* Добавлен переход для плавного изменения стиля */
+}
+
+.search-button.small {
+  padding: 2px 5px; /* Новые размеры кнопки в состоянии "small" */
 }
 
 .search-button:hover {

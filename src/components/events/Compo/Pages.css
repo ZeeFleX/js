@@ -1,78 +1,43 @@
-.container {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    transition: background-color 0.3s ease-in-out;
-    width: 100%;
-    max-width: fit-content; /* Добавлен стиль максимальной ширины */
-    text-align: center;
-  }
-  
-  h2 {
-    /* color: #333; */
-    text-align: center;
-  }
-  
-  p {
-    word-wrap: break-word; /* Добавлен стиль переноса слов */
-  }
+.container.home, .container.basket {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
+  max-width: fit-content; /* Добавлен стиль максимальной ширины */
+  text-align: center;
+}
 
-  /* стили для темной темы */
-  .container.home.dark {
-    background-color: #333;
-    color: #fff;
-  }
+.container.about {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
+  max-width: fit-content; /* Добавлен стиль максимальной ширины */
+  text-align: justify;
+}
 
-  /* стили для светлой темы */
-  .container.home.light {
-    background-color: #fff;
-    color: #333;
-  }
+h2, h3 {
+text-align: center;
+}
+  
+p {
+word-wrap: break-word; /* Добавлен стиль переноса слов */
+}
 
-  /* стили для темной темы */
-  .container.about.dark {
-    background-color: #333;
-    color: #fff;
-  }
+/* стили для темной темы */
+.container.home.dark, .container.about.dark, .container.basket.dark {
+  background-color: #333;
+  color: #fff;
+}
 
-  /* стили для светлой темы */
-  .container.about.light {
-    background-color: #fff;
-    color: #333;
-  }
-  
-  /* стили для темной темы */
-  .container.favorite.dark {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  /* стили для светлой темы */
-  .container.favorite.light {
-    background-color: #fff;
-    color: #333;
-  }
-  
-  /* Добавим отступы и стили для кнопок навигации */
-  .nav-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .nav-buttons a {
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border-radius: 4px;
-    transition: background-color 0.3s ease-in-out;
-    margin-right: 10px;
-  }
-  
-  .nav-buttons a:hover {
-    background-color: #2980b9;
-  }
+/* стили для светлой темы */
+.container.home.light, .container.about.light, .container.basket.light {
+  background-color: #fff;
+  color: #333;
+}
